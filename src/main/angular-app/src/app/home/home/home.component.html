@@ -1,0 +1,24 @@
+
+<po-page-default p-title="Solicitação de Reembolso">
+
+ <div class="po-row">
+  <h1 class="po-md-10">Reembolso</h1>
+  <po-button
+    class="po-md-2 new-purchase-button"
+    p-type="primary"
+    p-label="Novo pedido de Reembolso"
+    (p-click)="newRefundOrder()">
+  </po-button>
+</div>
+<br>
+  
+<div class="po-row">
+  <po-container class="po-lg-12 po-mt-2">
+    <div class="po-font-text-bold">
+      Lista de Reembolso do mês
+    </div>
+    <po-table p-container="shadow" [p-items]="items">
+    </po-table>
+  </po-container>
+</div>
+</po-page-default>

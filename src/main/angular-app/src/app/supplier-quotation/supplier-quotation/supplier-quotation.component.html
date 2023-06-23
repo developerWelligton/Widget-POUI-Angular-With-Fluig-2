@@ -1,0 +1,51 @@
+<po-page-default p-title="Incluir cotação dos produtos">
+  <div class="po-row po-mb-2">
+    <ng-container *ngFor="let product of productsList; let i = index" [attr.data-index]="i">
+      <po-widget class="po-lg-12 po-mb-1">
+        <ng-container *ngFor="let item of product">
+          <dl *ngIf="item.key !== 'price'">
+            <dt>{{ literals[item.key] }}</dt>
+            <dd>{{ item.value }}</dd>
+          </dl>
+        </ng-container>
+        <ng-container *ngFor="let item of product">
+          <po-decimal
+            *ngIf="item.key === 'price'"
+            class="po-md-3 no-padding po-mt-1"
+            name="{{ item.key }}-{{ i }}"
+            [(ngModel)]="item.value"
+            p-decimals-length="2"
+            p-icon="po-icon-finance"
+            [p-label]="literals[item.key]"
+            p-required
+            p-thousand-maxlength="13"
+            [p-disabled]="isSended || !!status"
+          >
+          </po-decimal>
+        </ng-container>
+      </po-widget>
+    </ng-container>
+  </div>
+  <div class="po-row po-mb-2" *ngIf="status">
+      <po-datepicker
+        [(ngModel)]="sendDate"
+        class="po-md-3"
+        name="datepicker"
+        p-label="Data de envio"
+        [p-disabled]="isSended">
+      </po-datepicker>
+  </div>
+  <div class="po-row po-mb-2" *ngIf="status">
+    <po-textarea
+      [(ngModel)]="trackingCode"
+      class="po-md-3"
+      name="textarea"
+      p-label="Código de rastreio"
+      [p-disabled]="isSended">
+    </po-textarea>
+  </div>
+  <div class="po-row po-mb-2">
+    <po-button [p-disabled]="isSended" p-type="primary" class="po-md-2" p-label="Enviar" (p-click)="saveForm()">
+    </po-button>
+  </div>
+</po-page-default>

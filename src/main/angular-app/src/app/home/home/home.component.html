@@ -11,39 +11,78 @@
   </po-button>
 </div>
 <br>
-  
 <po-list-view
   p-property-title="name"
   [p-items]="[
-    { name: 'Registro 1', email: 'register@po-ui.com' },
-    { name: 'Registro 2', email: 'register2@po-ui.com' }
+    {
+      name: 'Solicitação Reembolso - 001',
+      solicitante: 'João',
+      solicitation: [
+        {
+          number: '001',
+          responsible: 'João',
+          currentActivity: 'Inicio',
+          transportValue: 'R$100',
+          foodAllowance: 'R$150',
+          receipt: 'Link/Imagem do comprovante 1',
+          date: '23/06/2023'
+        },
+        {
+          number: '002',
+          responsible: 'Maria',
+          currentActivity: 'Aprovar Reembolso',
+          transportValue: 'R$100',
+          foodAllowance: 'R$150',
+          receipt: 'Link/Imagem do comprovante 2',
+          date: '23/06/2023'
+        }
+      ]
+    },
+    {
+      name: 'Solicitação Reembolso - 003',
+      solicitante: 'Pedro',
+      solicitation: [
+        {
+          number: '003',
+          responsible: 'Pedro',
+          currentActivity: 'Realizar Pagamento',
+          transportValue: 'R$100',
+          foodAllowance: 'R$150',
+          receipt: 'Link/Imagem do comprovante 3',
+          date: '23/06/2023'
+        },
+        {
+          number: '004',
+          responsible: 'Ana',
+          currentActivity: 'Inicio',
+          transportValue: 'R$100',
+          foodAllowance: 'R$150',
+          receipt: 'Link/Imagem do comprovante 4',
+          date: '23/06/2023'
+        }
+      ]
+    }
   ]"
 >
   <ng-template p-list-view-content-template let-item>
     <div class="po-row">
-      <div class="po-md-8">
-        <po-info p-label="Email" [p-value]="item.email"></po-info>
-      </div>
-      <div class="po-md-4 po-text-right">
-        <po-button
-          class="button-spacing"
-          p-label="Editar"
-          (p-click)="EventEmitterEdit"
-          p-icon="po-icon-edit"
-          p-kind="primary"
-          p-small="boolean">
-        </po-button>
-        <po-button
-          class="button-spacing"
-          p-label="Excluir"
-          (p-click)="EventEmitterDelete"
-          p-icon="po-icon-delete"
-          p-danger="boolean"
-          p-small="boolean">
-        </po-button>
+      <po-info class="po-md-3" p-label="Número da Solicitação" [p-value]="item.solicitation[0].number"></po-info>
+      <po-info class="po-md-3" p-label="Solicitante" [p-value]="item.solicitante"></po-info>
+      <po-info class="po-md-3" p-label="Responsável" [p-value]="item.solicitation[0].responsible"></po-info>
+      <po-info class="po-md-3" p-label="Atividade Atual" [p-value]="item.solicitation[0].currentActivity"></po-info>
+    </div>
+    <div class="po-row">
+      <div class="po-md-12">
+        <po-table
+          [p-columns]="columns"
+          [p-items]="item.solicitation"
+        ></po-table>
       </div>
     </div>
   </ng-template>
 </po-list-view>
 
+
+
+ 
 </po-page-default>

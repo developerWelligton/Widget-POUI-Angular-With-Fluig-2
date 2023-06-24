@@ -6,7 +6,7 @@
   <po-button
     class="po-md-2 new-purchase-button"
     p-type="primary"
-    p-label="Novo pedido de Reembolso"
+    p-label="Solicitar Reembolso"
     (p-click)="newRefundOrder()">
   </po-button>
 </div>
@@ -64,22 +64,33 @@
     }
   ]"
 >
-  <ng-template p-list-view-content-template let-item>
-    <div class="po-row">
-      <po-info class="po-md-3" p-label="Número da Solicitação" [p-value]="item.solicitation[0].number"></po-info>
-      <po-info class="po-md-3" p-label="Solicitante" [p-value]="item.solicitante"></po-info>
-      <po-info class="po-md-3" p-label="Responsável" [p-value]="item.solicitation[0].responsible"></po-info>
-      <po-info class="po-md-3" p-label="Atividade Atual" [p-value]="item.solicitation[0].currentActivity"></po-info>
+<ng-template p-list-view-content-template let-item>
+  <div class="po-row">
+    <div class="po-md-5 ">
+      <po-button
+        p-label="Adicionar Reembolso"
+        (p-click)="adicionarReembolso()">
+      </po-button>
     </div>
-    <div class="po-row">
-      <div class="po-md-12">
-        <po-table
-          [p-columns]="columns"
-          [p-items]="item.solicitation"
-        ></po-table>
-      </div>
+  </div>
+  <br>
+
+  <div class="po-row">
+    <po-info class="po-md-3" p-label="Número da Solicitação" [p-value]="item.solicitation[0].number"></po-info>
+    <po-info class="po-md-3" p-label="Solicitante" [p-value]="item.solicitante"></po-info>
+    <po-info class="po-md-3" p-label="Responsável" [p-value]="item.solicitation[0].responsible"></po-info>
+    <po-info class="po-md-3" p-label="Atividade Atual" [p-value]="item.solicitation[0].currentActivity"></po-info>
+  </div>
+
+  <div class="po-row">
+    <div class="po-md-12">
+      <po-table
+        [p-columns]="columns"
+        [p-items]="item.solicitation"
+      ></po-table>
     </div>
-  </ng-template>
+  </div>
+</ng-template>
 </po-list-view>
 
 

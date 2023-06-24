@@ -1,6 +1,32 @@
-<po-page-default p-title="Home">
-    <p>Este projeto foi criado do zero no TOTVS Developers utilizando o <a href="https://po-ui.io">PO UI</a></p>
-    <p>Acabei realizando alguns ajustes que não mostrei no Meetup por problemas que tive de performance da máquina.</p>
-    <p>Se você chegou a baixar este projeto, agradeço a atenção e por você não ter desistido da apresentação <span class="po-icon po-icon-like"></span></p>
-  
+<po-page-default p-title="Detalhes das despesas">  
+    <div class="po-row">
+      <po-datepicker 
+        name="Data" 
+        p-clean
+        p-label="Data" 
+      >
+      </po-datepicker> 
+    </div> 
+
+    <div class="po-row">
+      <po-input name="input" p-label="Transporte"> </po-input>
+    </div>
+     
+    <div class="po-row">
+      <po-input name="input" p-label="Refeição"> </po-input>
+    </div>
+
+     
+    <div class="po-row">
+      <po-upload name="upload" p-label="Comprovante" p-url="https://po-sample-api.fly.dev/v1/uploads/addFile"> </po-upload>
+    </div>
+    
+    <br>
+    
+    <div class="po-row"> 
+      <po-button p-label="Salvar" (p-click)="onClick()"> </po-button>
+    </div>
+    
+     
+    
   </po-page-default>

@@ -12,13 +12,38 @@
 </div>
 <br>
   
-<div class="po-row">
-  <po-container class="po-lg-12 po-mt-2">
-    <div class="po-font-text-bold">
-      Lista de Reembolso do mês
+<po-list-view
+  p-property-title="name"
+  [p-items]="[
+    { name: 'Registro 1', email: 'register@po-ui.com' },
+    { name: 'Registro 2', email: 'register2@po-ui.com' }
+  ]"
+>
+  <ng-template p-list-view-content-template let-item>
+    <div class="po-row">
+      <div class="po-md-8">
+        <po-info p-label="Email" [p-value]="item.email"></po-info>
+      </div>
+      <div class="po-md-4 po-text-right">
+        <po-button
+          class="button-spacing"
+          p-label="Editar"
+          (p-click)="EventEmitterEdit"
+          p-icon="po-icon-edit"
+          p-kind="primary"
+          p-small="boolean">
+        </po-button>
+        <po-button
+          class="button-spacing"
+          p-label="Excluir"
+          (p-click)="EventEmitterDelete"
+          p-icon="po-icon-delete"
+          p-danger="boolean"
+          p-small="boolean">
+        </po-button>
+      </div>
     </div>
-    <po-table p-container="shadow" [p-items]="items">
-    </po-table>
-  </po-container>
-</div>
+  </ng-template>
+</po-list-view>
+
 </po-page-default>

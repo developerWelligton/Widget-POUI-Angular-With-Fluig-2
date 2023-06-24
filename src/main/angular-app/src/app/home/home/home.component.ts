@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
  
 
   editItem(item) {
-    // Lógica para editar item
+    this.newRefundOrder()
   }
 
   deleteItem(item) {

@@ -66,14 +66,26 @@
 >
 <ng-template p-list-view-content-template let-item>
   <div class="po-row">
-    <div class="po-md-5 ">
+    <div class="po-md-5">
       <po-button
         p-label="Adicionar Reembolso"
-        (p-click)="adicionarReembolso()">
+        (p-click)="newRefundOrder()">
       </po-button>
+      {{''}}
+      <po-button
+      p-label="Movimentar Solicitação"
+      (p-click)="newRefundOrder()">
+    </po-button>
+    </div> 
+    <div class="po-md-7">
+      <po-stepper>
+        <po-step p-label="Início"></po-step>
+        <po-step p-label="Aprovar Reembolso"></po-step>
+        <po-step p-label="Anexar Notar"></po-step> 
+      </po-stepper>
     </div>
   </div>
-  <br>
+  <br> 
 
   <div class="po-row">
     <po-info class="po-md-3" p-label="Número da Solicitação" [p-value]="item.solicitation[0].number"></po-info>

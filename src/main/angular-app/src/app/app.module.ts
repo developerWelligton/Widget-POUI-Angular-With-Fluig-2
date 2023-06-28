@@ -10,10 +10,11 @@ import { FluigOauthService } from './services/fluig-oauth.service';
 import { ProductsConverterService } from './services/products-converter.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PoModule } from '@po-ui/ng-components';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent 
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,7 @@ import { PoModule } from '@po-ui/ng-components';
     FluigOauthService,
     ProductsConverterService
   ],
+  exports:[PoModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PoChartType, PoTableColumn  } from '@po-ui/ng-components';
+import { PoBreadcrumb, PoButtonGroupItem, PoChartType, PoNotificationService, PoTableColumn  } from '@po-ui/ng-components';
 import { PoDialogService } from '@po-ui/ng-components';
 import { PoChartSerie } from '@po-ui/ng-components';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private poAlert: PoDialogService,
-    private router: Router  ) {}
+    private router: Router ,private poNotification: PoNotificationService ) {}
 
   ngOnInit() {}
  
@@ -22,6 +21,10 @@ export class HomeComponent implements OnInit {
   newRefundOrder() {
     this.router.navigateByUrl('/refund-order');
   }
+  navigateToMenu(){
+    this.router.navigateByUrl('/menu');
+  }
+  
  
  
   columns = [
@@ -51,7 +54,46 @@ export class HomeComponent implements OnInit {
   }
  
    
+  attendances: Array<PoButtonGroupItem> = [
+    { label: 'Appointment', icon: 'po-icon-calendar', action: this.getPassword.bind(this) },
+    { label: 'Emergency', icon: 'po-icon-injector', action: this.getPassword.bind(this) },
+    { label: 'Exams', icon: 'po-icon-exam', action: this.getPassword.bind(this) }
+  ];
  
+
+  getPassword(attendance) {
+    const password = this.randomPassword();
+    const typeNotification = this.getTypeNotification(attendance.label);
+
+    this.poNotification[typeNotification](`
+      Type of attendance: ${attendance.label} -
+      Your password: ${password}
+    `);
+  }
+
+  getTypeNotification(label: string = ''): string {
+    switch (label) {
+      case 'Emergency':
+        return 'error';
+      case 'Appointment':
+        return 'information';
+      case 'Exams':
+        return 'success';
+    }
+  }
+
+  randomPassword() {
+    return Math.random().toString().slice(2, 5);
+  }
  
+  breadcrumb: PoBreadcrumb = {
+    items: [{ label: 'Menu Principal', link: '/'},{label: 'Reembolso', link: '/'} ]
+  };
+  /*
+    breadcrumb: PoBreadcrumb = {
+    items: [{ label: 'Home', link: '/' }, { label: 'Pipelines', link: '/' }, { label: 'Background Process Scheduler' }]
+  };*/
+  srcImage = './../../../assets/comprador.svg';
+
   
 }

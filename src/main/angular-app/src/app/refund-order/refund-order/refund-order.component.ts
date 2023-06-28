@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PoCalendarMode, PoCheckboxGroupOption, PoInfoOrientation, PoRadioGroupOption, PoSelectOption } from '@po-ui/ng-components';
+import { Router } from '@angular/router';
+import { PoBreadcrumb, PoCalendarMode, PoCheckboxGroupOption, PoInfoOrientation, PoRadioGroupOption, PoSelectOption } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-refund-order',
@@ -8,6 +9,9 @@ import { PoCalendarMode, PoCheckboxGroupOption, PoInfoOrientation, PoRadioGroupO
 })
 export class RefundOrderComponent implements OnInit {
 
+  constructor(   private router: Router){
+
+  }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   } 
@@ -15,4 +19,12 @@ export class RefundOrderComponent implements OnInit {
   onClick(){
     
   }
+  breadcrumb: PoBreadcrumb = {
+    items: [{ label: 'Menu Principal', link: '/'},{label: 'Solicitar Reembolso', link: '/'} ]
+  };
+
+  navigateToMenu(){
+    this.router.navigateByUrl('/menu');
+  } 
+  
 }

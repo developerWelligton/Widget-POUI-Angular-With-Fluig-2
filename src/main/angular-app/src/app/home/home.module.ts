@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HomeRoutingModule } from './home.routing.module';
-import { PoModule, PoStepperModule } from '@po-ui/ng-components';
-
+import { PoModule, PoStepperModule ,} from '@po-ui/ng-components'; 
 @NgModule({
   declarations: [
     HomeComponent
@@ -15,7 +14,7 @@ import { PoModule, PoStepperModule } from '@po-ui/ng-components';
     FormsModule,
     ReactiveFormsModule,
     PoModule,
-    PoStepperModule
+    PoStepperModule 
   ],
   exports: [
     HomeComponent

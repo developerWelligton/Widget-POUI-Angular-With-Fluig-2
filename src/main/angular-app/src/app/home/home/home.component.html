@@ -1,16 +1,14 @@
 
-<po-page-default p-title="Solicitação de Reembolso">
+<po-page-default p-title="Solicitação de Reembolso" [p-breadcrumb]="breadcrumb">
 
  <div class="po-row">
   <h1 class="po-md-10">Reembolso</h1>
-  <po-button
-    class="po-md-2 new-purchase-button"
-    p-type="primary"
-    p-label="Solicitar Reembolso"
-    (p-click)="newRefundOrder()">
-  </po-button>
+  
+  <po-button p-label="Solicitar Reembolso"  (p-click)="newRefundOrder()" class="button-spacing"> </po-button>
+  <po-button p-label="Voltar" (p-click)="navigateToMenu()" class="button-spacing"></po-button>
 </div>
-<br>
+<br> 
+
 <po-list-view
   p-property-title="name"
   [p-items]="[
@@ -64,8 +62,10 @@
     }
   ]"
 >
+ 
 <ng-template p-list-view-content-template let-item>
   <div class="po-row">
+    
     <div class="po-md-5">
       <po-button
         p-label="Adicionar Reembolso"
@@ -85,8 +85,8 @@
       </po-stepper>
     </div>
   </div>
-  <br> 
-
+  <br>  
+  <po-divider class="po-md-12" p-label="Dados da Solicitação"></po-divider>
   <div class="po-row">
     <po-info class="po-md-3" p-label="Número da Solicitação" [p-value]="item.solicitation[0].number"></po-info>
     <po-info class="po-md-3" p-label="Solicitante" [p-value]="item.solicitante"></po-info>
@@ -94,6 +94,10 @@
     <po-info class="po-md-3" p-label="Atividade Atual" [p-value]="item.solicitation[0].currentActivity"></po-info>
   </div>
 
+  <br>
+  <br>
+  <po-divider class="po-md-12" p-label="Lista de Reembolsos"></po-divider>
+  
   <div class="po-row">
     <div class="po-md-12">
       <po-table
@@ -103,9 +107,13 @@
     </div>
   </div>
 </ng-template>
-</po-list-view>
-
-
-
- 
+</po-list-view> 
 </po-page-default>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<po-divider>
+</po-divider>

@@ -1,5 +1,5 @@
  
-  <po-page-default p-title="Detalhes das despesas">  
+  <po-page-default p-title="Solicitar Reembolso" [p-breadcrumb]="breadcrumb">  
     <po-container> 
     <div class="po-row">
       <po-datepicker 
@@ -25,8 +25,10 @@
     
     <br>
     
-    <div class="po-row"> 
-      <po-button p-label="Salvar" (p-click)="onClick()"> </po-button>
+    <div class="po-row">
+      <po-button p-label="Salvar" (p-click)="onClick()" class="button-spacing"></po-button>
+    
+      <po-button p-label="Voltar" (p-click)="navigateToMenu()" class="button-spacing"></po-button>
     </div>
     
      

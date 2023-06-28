@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PoMenuItem } from '@po-ui/ng-components';
+import { Router } from '@angular/router';
+import { PoBreadcrumb, PoMenuItem } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,16 @@ export class AppComponent {
     { label: 'Solicitação de Reembolso', link: '/', icon: 'po-icon-home', shortLabel: 'Solicitação de Reembolso' },
     { label: 'Reembolsos Finalizados', link: '/', icon: 'po-icon-home', shortLabel: 'Rembolsos Finalizados' },
   ]
+  constructor( private router: Router ){
+
+  }
+
+
+  breadcrumb: PoBreadcrumb = {
+    items: [{ label: 'Home', link: '/' } ]
+  };
+
+  navigateToRefund() {
+    this.router.navigateByUrl('/refund-order');
+  }
 }

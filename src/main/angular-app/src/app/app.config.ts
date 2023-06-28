@@ -1,16 +1,7 @@
-abstract class AppSettings {
-
-  public static APP_ROOT = window['_app_baseUrl'];
-  public static APP_PAGE_CODE = window['_app_pageCode'];
-
-  /**
-   * base url + application prefix
-   */
-
-  public static APP_BASE =
-    AppSettings.APP_ROOT && AppSettings.APP_PAGE_CODE
-    ? AppSettings.APP_ROOT + '/' + AppSettings.APP_PAGE_CODE
-    : '';
+declare const window: any;
+class AppSettings {
+    public static tenantURI: any = window?.WCMAPI?.tenantURI
+    public static pageCode: any = window?.WCMAPI?.pageCode
+    public static APP_BASE = (this.tenantURI && this.pageCode) ? this.tenantURI + '/' + this.pageCode : '/';
 }
-
 export { AppSettings as APP_CONFIG };

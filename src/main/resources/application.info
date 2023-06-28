@@ -1,5 +1,5 @@
 application.type=widget
-application.code=app_angular_poui
+application.code=app_angular_poui_1
 application.title=Angular APP PO UI
 application.description=Angular APP PO UI
 application.category=SYSTEM
@@ -8,7 +8,7 @@ application.icon=icon.png
 application.uiwidget=true
 developer.code=TOTVS
 developer.name=TOTVS S.A.
-developer.url=http\://www.totvs.com
+developer.url=https://devfluig.xplanning.com.br
 view.file=view.ftl
 locale.file.base.name=app_angular_poui
 simple.deploy=true
